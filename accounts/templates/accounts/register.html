@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - GradeNest</title>
+  <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+
+{% comment %} google font (Outfit) {% endcomment %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <script src="{% static 'accounts/js/register.js' %}" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="logo">
+    <img src="{% static 'accounts/img/gradenest-logo.png' %}" alt="GradeNest Logo" class="logo-img">
+    <span>GradeNest</span>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <form id="registerForm" class="form">
+    <h2>Create Account</h2>
+
+    <!-- Name -->
+    <label for="name">Full Name <span class="required">*</span></label>
+    <div class="input-wrapper">
+      <img src="{% static 'accounts/img/user-icon.png' %}" alt="User Icon" class="input-icon">
+      <input type="text" id="name" placeholder="">
+    </div>
+    <small class="error" id="nameError"></small>
+
+    <!-- Email -->
+    <label for="email">Email <span class="required">*</span></label>
+    <div class="input-wrapper">
+      <img src="{% static 'accounts/img/email-icon.png' %}" alt="Email Icon" class="input-icon">
+      <input type="text" id="email" placeholder="">
+    </div>
+    <small class="error" id="emailError"></small>
+
+    <!-- Password -->
+    <label for="password">Password <span class="required">*</span></label>
+    <div class="input-wrapper">
+      <img src="{% static 'accounts/img/lock-icon.png' %}" alt="Lock Icon" class="input-icon">
+      <input type="password" id="password" placeholder="">
+      <button type="button" id="togglePassword" class="toggle-btn">👁</button>
+    </div>
+    <small class="error" id="passwordError"></small>
+
+    <!-- Confirm Password -->
+    <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+    <div class="input-wrapper">
+      <img src="{% static 'accounts/img/lock2-icon.png' %}" alt="Lock Icon" class="input-icon">
+      <input type="password" id="confirmPassword" placeholder="">
+    </div>
+    <small class="error" id="confirmPasswordError"></small>
+
+    <!-- Terms -->
+    <div class="terms">
+      <input type="checkbox" id="terms">
+      <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
+    </div>
+    <small class="error" id="termsError"></small>
+
+    <button type="submit">Register</button>
+
+    <a href="{% url 'accounts:login' %}">Already have an account? Log in</a>
+
+  </form>
+</div>
+</body>
+</html>

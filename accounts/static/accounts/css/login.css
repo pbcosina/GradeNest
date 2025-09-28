@@ -101,13 +101,28 @@ body {
   color: #fff;
 }
 
+.form a {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 12px;
+  color: #38CA79;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form a:hover {
+  text-decoration: underline;
+}
+
 .input-wrapper {
   display: flex;
   align-items: center;
-  background: #2c3c4a;    
-  border-radius: 6px;     
-  padding: 6px 2px;      
-  margin-bottom: 10px;    
+  background: #2c3c4a;
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  height: 38px;
 }
 
 .input-icon {
@@ -149,10 +164,15 @@ body {
 
 .forgot {
   display: block;
-  text-align: right;
   font-size: 13px;
   color: #aaa;
-  margin-bottom: 20px;
+  margin: 6px 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+  width: 100%;
+  text-align: right;
+  padding-right: 2px;
+  margin-left: 85px;
 }
 
 .forgot:hover {
@@ -245,3 +265,61 @@ body {
   border-bottom: 2px solid red !important;
 }
 
+.toggle-btn {
+  width: 28px;
+  height: 28px;
+  margin-left: 6px;
+  background: #2c3c4a;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.form .toggle-btn {
+  width: 28px !important;
+  background: #2c3c4a !important;
+  color: #ccc !important;
+  padding: 0 !important;
+}
+
+.toggle-btn:hover {
+  color: #38CA79;
+}
+
+.terms {
+  font-size: 13px;
+  color: #fff;
+  margin:auto 10px 10px;
+}
+
+.terms label {
+  cursor: pointer;
+  margin: 0;
+  font-size: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;             
+  line-height: 1.2;
+}
+
+.terms input[type="checkbox"] {
+  margin: 0;
+}
+
+.terms a {
+  color: #38CA79;
+  text-decoration: none;
+  font-size: inherit;
+  line-height: inherit;
+  position: relative;
+  top:-6px;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}

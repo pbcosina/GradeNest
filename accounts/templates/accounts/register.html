@@ -7,7 +7,7 @@
   <title>Register - GradeNest</title>
   <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
 
-{% comment %} google font (Outfit) {% endcomment %}
+  {% comment %} google font (Outfit) {% endcomment %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -30,14 +30,15 @@
 </header>
 
 <div class="container">
-  <form id="registerForm" class="form">
+  <form id="registerForm" class="form" method="POST" action="{% url 'accounts:register' %}">
+    {% csrf_token %}
     <h2>Create Account</h2>
 
     <!-- name -->
     <label for="name">Full Name <span class="required">*</span></label>
     <div class="input-wrapper">
       <img src="{% static 'accounts/img/user-icon.png' %}" alt="User Icon" class="input-icon">
-      <input type="text" id="name" placeholder="">
+      <input type="text" id="name" placeholder="" name="name">
     </div>
     <small class="error" id="nameError"></small>
 
@@ -45,7 +46,7 @@
     <label for="email">Email <span class="required">*</span></label>
     <div class="input-wrapper">
       <img src="{% static 'accounts/img/email-icon.png' %}" alt="Email Icon" class="input-icon">
-      <input type="text" id="email" placeholder="">
+      <input type="text" id="email" placeholder="" name="email">
     </div>
     <small class="error" id="emailError"></small>
 
@@ -53,7 +54,7 @@
     <label for="password">Password <span class="required">*</span></label>
     <div class="input-wrapper">
       <img src="{% static 'accounts/img/lock-icon.png' %}" alt="Lock Icon" class="input-icon">
-      <input type="password" id="password" placeholder="">
+      <input type="password" id="password" placeholder="" name="password">
       <button type="button" id="togglePassword" class="toggle-btn">👁</button>
     </div>
     <small class="error" id="passwordError"></small>
@@ -62,14 +63,14 @@
     <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
     <div class="input-wrapper">
       <img src="{% static 'accounts/img/lock2-icon.png' %}" alt="Lock Icon" class="input-icon">
-      <input type="password" id="confirmPassword" placeholder="">
+      <input type="password" id="confirmPassword" placeholder="" name="confirmPassword">
     </div>
     <small class="error" id="confirmPasswordError"></small>
 
     <!-- terms n conditions -->
     <div class="terms">
       <label for="terms">
-        <input type="checkbox" id="terms">
+        <input type="checkbox" id="terms" name="terms">
         I agree to the <a href="#">terms and conditions</a>
       </label>
     </div>

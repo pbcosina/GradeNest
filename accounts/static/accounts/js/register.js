@@ -100,19 +100,21 @@ document.addEventListener("DOMContentLoaded", () => {
       valid = false;
     }
 
-    if (!valid) return;
+    if (valid) {
+    form.submit();  // sends the form data to Django
+}
 
     // hash password (simple simulation for now)
-    const hashedPassword = btoa(password.value);
+    //const hashedPassword = btoa(password.value);
 
-    alert("Registration successful! Redirecting to Education Level Page...");
-    console.log({
+    //alert("Registration successful! Redirecting to Education Level Page...");
+   /* console.log({
       name: name.value,
       email: email.value,
       password: hashedPassword
-    });
+    });*/
 
     // redirect simulation
-    window.location.href = "/education-level";
+   // window.location.href = "/education-level";
   });
 });

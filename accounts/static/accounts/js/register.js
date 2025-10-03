@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("registerForm");
 
-  const name = document.getElementById("name");
+  const firstname = document.getElementById("firstname");
+  const lastname = document.getElementById("lastname");
   const email = document.getElementById("email");
   const password = document.getElementById("password");
   const confirmPassword = document.getElementById("confirmPassword");
   const terms = document.getElementById("terms");
 
-  const nameError = document.getElementById("nameError");
+  const firstnameError = document.getElementById("firstnameError");
+  const lastnameError = document.getElementById("lastnameError");
   const emailError = document.getElementById("emailError");
   const passwordError = document.getElementById("passwordError");
   const confirmPasswordError = document.getElementById("confirmPasswordError");
@@ -15,10 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const togglePassword = document.getElementById("togglePassword");
 
-  // demo registered emails
-  const registeredEmails = ["test@example.com"];
-
-  // toggle show/hide password
+  // Toggle show/hide password
   togglePassword.addEventListener("click", () => {
     password.type = password.type === "password" ? "text" : "password";
   });
@@ -27,27 +26,41 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     let valid = true;
 
-    // reset error states
-    [nameError, emailError, passwordError, confirmPasswordError, termsError].forEach(err => {
+    // Reset error states
+    [firstnameError, lastnameError, emailError, passwordError, confirmPasswordError, termsError].forEach(err => {
       err.style.display = "none";
     });
-    [name, email, password, confirmPassword].forEach(input => input.classList.remove("input-error"));
+    [firstname, lastname, email, password, confirmPassword].forEach(input => input.classList.remove("input-error"));
 
-    // name validation (letters and spaces only)
     const namePattern = /^[A-Za-z\s]+$/;
-    if (name.value.trim() === "") {
-      nameError.innerText = "Name is required";
-      nameError.style.display = "block";
-      name.classList.add("input-error");
+
+    // First Name validation
+    if (firstname.value.trim() === "") {
+      firstnameError.innerText = "First name is required";
+      firstnameError.style.display = "block";
+      firstname.classList.add("input-error");
       valid = false;
-    } else if (!namePattern.test(name.value.trim())) {
-      nameError.innerText = "Please enter a valid name";
-      nameError.style.display = "block";
-      name.classList.add("input-error");
+    } else if (!namePattern.test(firstname.value.trim())) {
+      firstnameError.innerText = "Please enter a valid first name";
+      firstnameError.style.display = "block";
+      firstname.classList.add("input-error");
       valid = false;
     }
 
-    // email validation
+    // Last Name validation
+    if (lastname.value.trim() === "") {
+      lastnameError.innerText = "Last name is required";
+      lastnameError.style.display = "block";
+      lastname.classList.add("input-error");
+      valid = false;
+    } else if (!namePattern.test(lastname.value.trim())) {
+      lastnameError.innerText = "Please enter a valid last name";
+      lastnameError.style.display = "block";
+      lastname.classList.add("input-error");
+      valid = false;
+    }
+
+    // Email validation
     const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
     if (email.value.trim() === "") {
       emailError.innerText = "Email is required";
@@ -59,14 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
       emailError.style.display = "block";
       email.classList.add("input-error");
       valid = false;
-    } else if (registeredEmails.includes(email.value.trim())) {
-      emailError.innerText = "Email already registered. Please click here to login.";
-      emailError.style.display = "block";
-      email.classList.add("input-error");
-      valid = false;
     }
 
-    // password validation
+    // Password validation
     const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
     if (password.value.trim() === "") {
       passwordError.innerText = "Password is required";
@@ -80,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       valid = false;
     }
 
-    // confirm password
+    // Confirm Password
     if (confirmPassword.value.trim() === "") {
       confirmPasswordError.innerText = "Confirm Password is required";
       confirmPasswordError.style.display = "block";
@@ -93,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       valid = false;
     }
 
-    // terms
+    // Terms checkbox
     if (!terms.checked) {
       termsError.innerText = "You must accept the terms and conditions to register an account.";
       termsError.style.display = "block";
@@ -104,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.submit();  // sends the form data to Django
 }
 
+<<<<<<< HEAD
     // hash password (simple simulation for now)
     //const hashedPassword = btoa(password.value);
 
@@ -116,5 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // redirect simulation
    // window.location.href = "/education-level";
+=======
+    // ✅ Submit form to Django backend
+    form.submit();
+>>>>>>> register-update
   });
 });

@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       confirmPassword.classList.add("input-error");
       valid = false;
     } else if (password.value !== confirmPassword.value) {
-      confirmPasswordError.innerText = "Passwords don’t match";
+      confirmPasswordError.innerText = "Passwords don't match";
       confirmPasswordError.style.display = "block";
       confirmPassword.classList.add("input-error");
       valid = false;
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       password: hashedPassword
     });
 
-    // redirect simulation
-    window.location.href = "/education-level";
+    // redirect simulation for now
+window.location.href = "/accounts/education-level/";
   });
 });

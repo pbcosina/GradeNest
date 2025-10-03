@@ -13,16 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault(); // prevents the page from reloading
+    e.preventDefault();
     let valid = true;
 
-    // reset error states
     emailError.style.display = "none";
     passwordError.style.display = "none";
     email.classList.remove("input-error");
     password.classList.remove("input-error");
 
-    // email validation
     const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
     if (email.value.trim() === "") {
       emailError.innerText = "Email is required";
@@ -36,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
       valid = false;
     }
 
-    // password validation
     if (password.value.trim() === "") {
       passwordError.innerText = "Password is required";
       passwordError.style.display = "block";
@@ -46,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!valid) return;
 
-    // simulated backend check
     if (email.value !== demoAccount.email) {
       emailError.innerText = "Cannot locate account";
       emailError.style.display = "block";

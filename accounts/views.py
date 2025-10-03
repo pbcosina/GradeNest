@@ -8,3 +8,6 @@ def register_view(request):
 
 def education_level_view(request):
     return render(request, 'accounts/education-level.html')
+
+def dashboard_view(request):
+    return render(request, 'accounts/dashboard.html')

@@ -30,54 +30,61 @@
 </header>
 
 <div class="container">
-  <form id="registerForm" class="form">
-    <h2>Create Account</h2>
+  <form id="registerForm" class="form" method="POST" action="{% url 'accounts:register' %}">
+  {% csrf_token %}
+  <h2>Create Account</h2>
 
-    <!-- name -->
-    <label for="name">Full Name <span class="required">*</span></label>
-    <div class="input-wrapper">
-      <img src="{% static 'accounts/img/user-icon.png' %}" alt="User Icon" class="input-icon">
-      <input type="text" id="name" placeholder="">
-    </div>
-    <small class="error" id="nameError"></small>
+  <!-- First Name -->
+<label for="firstname">First Name <span class="required">*</span></label>
+<div class="input-wrapper">
+  <input type="text" id="firstname" name="firstname" placeholder="Enter your first name">
+</div>
+<small class="error" id="firstnameError"></small>
 
-    <!-- email -->
-    <label for="email">Email <span class="required">*</span></label>
-    <div class="input-wrapper">
-      <img src="{% static 'accounts/img/email-icon.png' %}" alt="Email Icon" class="input-icon">
-      <input type="text" id="email" placeholder="">
-    </div>
-    <small class="error" id="emailError"></small>
+<!-- Last Name -->
+<label for="lastname">Last Name <span class="required">*</span></label>
+<div class="input-wrapper">
+  <input type="text" id="lastname" name="lastname" placeholder="Enter your last name">
+</div>
+<small class="error" id="lastnameError"></small>
 
-    <!-- password -->
-    <label for="password">Password <span class="required">*</span></label>
-    <div class="input-wrapper">
-      <img src="{% static 'accounts/img/lock-icon.png' %}" alt="Lock Icon" class="input-icon">
-      <input type="password" id="password" placeholder="">
-      <button type="button" id="togglePassword" class="toggle-btn">👁</button>
-    </div>
-    <small class="error" id="passwordError"></small>
+  <!-- Email -->
+  <label for="email">Email <span class="required">*</span></label>
+  <div class="input-wrapper">
+    <input type="text" id="email" name="email" placeholder="Enter your email">
+  </div>
+  <small class="error" id="emailError"></small>
 
-    <!-- confirm Password -->
-    <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
-    <div class="input-wrapper">
-      <img src="{% static 'accounts/img/lock2-icon.png' %}" alt="Lock Icon" class="input-icon">
-      <input type="password" id="confirmPassword" placeholder="">
-    </div>
-    <small class="error" id="confirmPasswordError"></small>
+  <!-- Password -->
+  <label for="password">Password <span class="required">*</span></label>
+  <div class="input-wrapper">
+    <input type="password" id="password" name="password" placeholder="Enter your password">
+    <button type="button" id="togglePassword" class="toggle-btn">👁</button>
+  </div>
+  <small class="error" id="passwordError"></small>
 
-    <!-- terms n conditions -->
-    <div class="terms">
-      <input type="checkbox" id="terms">
-      <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
-    </div>
-    <small class="error" id="termsError"></small>
+  <!-- Confirm Password -->
+  <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+  <div class="input-wrapper">
+    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+  </div>
+  <small class="error" id="confirmPasswordError"></small>
 
-    <button type="submit">Register</button>
+  <!-- Terms and Conditions -->
+  <div class="terms">
+    <input type="checkbox" id="terms" name="terms">
+    <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
+  </div>
+  <small class="error" id="termsError"></small>
 
-    <a href="{% url 'accounts:login' %}">Already have an account? Log in</a>
+  <!-- Submit Button -->
+  <button type="submit">Register</button>
 
-  </form>
+  <!-- Login Link -->
+  <p><a href="/login">Already have an account? Log in</a></p>
+
+</form>
+
 </div>
 </body>
 </html>
